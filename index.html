@@ -1,0 +1,880 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>BatteryLife</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <link rel="manifest" href="site.webmanifest"> -->
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="favicon" href="img/logo.svg">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/nice-select.css">
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/gijgo.css">
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/slicknav.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="f2/css/all.css"> -->
+</head>
+
+<audio src="percent.mp3" autoplay="false" loop="true" id="charging" style="display:none"></audio>
+
+<audio src="ba3low.mp3" autoplay="false" loop="true" id="percent" style="display:none"></audio>
+<body>
+<nav class=" navbar-expand-lg fixed-top text-white sticky-top sticky navbar-light " id="mylinks" style="background:#563d7c;padding: 10px;">
+  <a class="navbar-brand text-white" href="#">
+  BatteryLife
+</a>
+  <button class="navbar-toggler text-white
+  " type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="
+    position: absolute;
+    right: 10%;
+">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="slider_area" id="opened">
+        <div class=" d-flex align-items-center">
+            <div class="shap_pattern d-none d-lg-block">
+
+                <!-- <img src="img/about/grid.png" alt=""> -->
+            </div>
+            
+            <div class="container">
+        
+                <button class="mybtn batterybtn" id="batterybtn">
+                    <span id="batlevel"></span>
+                    <i class="fa fa-battery"></i>
+                   
+                </button>
+
+              <main>
+                    <div class="home" id="home">
+                        <div class="header" id="topic">
+                           
+                           Battery Overview 
+                            <i class="fa fa-battery"></i>
+                            
+                        </div>
+                       <div class="widgets">
+
+                        <div class="widget">
+                            BatteryLife Uptime 
+                            <hr>
+                    <span id="uptime"> <i class="fa fa-spinner fa-spin"></i></span>
+                        </div>
+                        <div class="widget">
+                            Charge Count
+                            <hr>
+                            <span id="chargetime"><i class="fa fa-spinner fa-spin"></i></span>
+                        </div>
+                        <div class="widget">
+                        Percentage Charge Changes (+)
+                        <hr>
+                        <span id="charges"> <i class="fa fa-spinner fa-spin"></i></span>
+                        </div>
+
+                       </div>
+                       <hr>
+                        <div class="widgets">
+
+                        <div class="widget">
+                        Last Charge
+                            <hr>
+                    <span id="lastcharge"> 
+                    
+                    </span>
+                        </div>
+
+                        <div class="widget">
+                           Total Charge Duration
+                        <hr>
+                            
+                            <span id="chargedur">
+                            <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                        </div>
+                        <div class="widget">
+                       1% Percentage Charge Duration
+                        <hr>
+                        <span id="sectook">  
+                          Not Yet Calculated
+                        </span>
+                        </div>
+
+                       </div>
+                    
+                </div>
+                    <div class="chargeinfo" id="chargeinfo">
+                      <div class="header" id="topic">
+                           
+                           
+                        
+                            Charging Overview
+
+                        </div>
+                       <div class="widgets che">
+
+                        <div class="widget che">
+                            Charging Duration 
+                            <hr>
+                    <span id="plugdur"> <i class="fa fa-spinner fa-spin"></i></span>
+                        </div>
+                       <div class="widget che">
+                      <span id="ctd"> Countdown to 4%</span>
+                        <hr>
+                        <span id="tonext">  
+                          <i class="fa fa-spinner fa-spin"></i>
+                        </span>
+                        </div>
+                        <div class="widget info che">
+                          Info
+                        <hr>
+                            
+                            <span id="plugged">
+
+                             Percentage Plugged : <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                                
+                             <span id="unplugged">
+                            
+                                Percent UnPlugged : <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                            
+                            <span id="durt">
+                            
+                                Duration Taken : <i class="fa fa-spinner fa-spin"></i>
+                            </span>
+                        </div>
+                        
+
+                       </div>
+                       <hr>
+                        <div class="widgets che">
+                       
+                        
+                         <div class="widget">
+                            Percentage Charged (+)
+                            <hr>
+                            <span id="pcharged"><i class="fa fa-spinner fa-spin"></i></span>
+                        </div>
+                        
+
+                       </div>
+                     <div class="widgets">
+
+                        <div class="widget" id="durtn">
+                            Percentage Charge Durations
+                            <hr>
+                           
+                                 <span id="plugdur"> <!-- <i class="fa fa-spinner fa-spin"></i> -->
+                                   
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                      <td>Percentage</td>
+                                      <td>Charge Duration</td>
+                                      <td>Discharge Duration</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbodyapp2">
+                                    <tr>
+                                      <td>1%</td>
+                                      <td>34 seconds</td>
+                                      <td>45 seconds</td>
+                                    </tr>
+                                    
+                                    </tbody>
+                                  </table>
+
+                                 </span>
+                        </div>
+                                   
+                        </div>
+               
+                 <div class="widgets">
+
+                        <div class="widget" id="durtn">
+                            Charges So Far
+                            <hr>
+                           
+                                 <span id="plugdur"> <!-- <i class="fa fa-spinner fa-spin"></i> -->
+                                   
+                                  <table>
+                                    <thead>
+                                      <tr>
+                                      <td>Plugged</td>
+                                      <td>Unplugged</td>
+                                      
+                                    </tr>
+                                    </thead>
+                                    <tbody id="tbodyapp">
+                                      
+                                    <tr>
+                                      <td>11:23am </td>
+                                      <td>45 minutes </td>
+                                      
+                                    </tr>
+                                    </tbody>
+                                    
+                                  </table>
+
+                                 </span>
+                        </div>
+                                        
+                        </div>
+                </div>
+                <div class="gamesection" id="gamesection">
+                       <div class="header" id="topic">
+                           
+                           
+                        
+                            Game 
+
+                        </div>
+                       
+
+    <div id="container">
+        <button class="mybtn" id="mybtn">i</button>
+       
+        <div id="bda">
+            <span style="left:5%;animation-delay:3s;animation:anim2 5s ease-in infinite;">💚</span>
+            <span style="left:40%;animation-delay:4s;animation:anim2 7s ease-out infinite;">⚡</span>
+            <span style="left:65%;animation-delay:2s;animation:anim2 16s ease-in-out infinite;" >🌺</span>
+            <span style="left:80%;animation-delay:3s;animation:anim2 8s linear infinite;" >❄</span>
+            <span style="left:20%;animation-delay:3s;animation:anim2 9s ease-in infinite;">👍</span>
+            <span style="left:50%;animation-delay:4s;animation:anim2 10s ease-out infinite;">🍁</span>
+            <span style="left:60%;animation-delay:2s;animation:anim2 11s ease-in-out infinite;" >🎈</span>
+            <span style="left:85%;animation-delay:5s;animation:anim2 6s linear infinite;" >🌼</span>
+        </div>
+        <div id="wContainer">
+            <div id="topBar">
+                <h3 id="levelDiv"><span id="level">Level <span id="levelNum">1</span></span><span id="coinDiv"><span id="coin">0</span><span id="coinSign">💰</span></span></h3>
+                <div id="wcont">
+                    <div class="word">
+                        <!--<div class="wld">.</div>
+                        <div class="wld">.</div>-->
+                    </div>
+                    <div class="word"></div>
+                    <div class="word"></div>
+                    <div class="word"></div>
+                    <div class="word"></div>
+                </div>
+            </div>
+        </div>
+        <div id="lContainer">
+            <div id="l1" class="l"></div>
+            <div id="l2" class="l"></div>
+            <div id="l3" class="l"></div>
+            <div id="l4" class="l"></div>
+            <div id="l5" class="l"></div>
+            <div id="preview"><span id="previewTxt"></span></div>
+        </div>
+        <canvas id="gameContainer"></canvas>
+        <div id="over">
+            <h2 id="complete"><span id="title">Word Cookies</span></h2>
+            <div id="starCnt">
+                <div id="starbg"><span id="stb1">⭐</span><span id="stb2">⭐</span><span id="stb3">⭐</span></div>
+                <div id="star"><span>⭐</span><span>⭐</span><span>⭐</span></div>
+            </div>
+            <div id="nextBtnCnt">
+                <div id="levelBtnCnt">
+                    <button id="levelBtn">Levels</button>
+                </div>
+                <button id="nextBtn">Next Level</button>
+                <button id="st">Play</button>
+            </div>
+            <div id="levelCnt">
+                <div id="levelTitle">
+                    <button>Levels</button>
+                </div>
+                <div id="levelBack">
+                    <button>Back</button>
+                </div>
+                <div id="levelList"></div>
+            </div>
+        </div>
+        <div id="shuffle">🔄</div>
+        <div id="hint">💡</div>
+    </div>
+
+   
+         </div>
+         <style type="text/css">
+           #container{
+            height: 88% !important;
+    display: block;
+    width: 98% !important;
+           }
+         </style>
+                    </div>   
+                    <div class="settingsinfo fade"></div>         
+
+                    </main>
+
+               <div class="navbar" id="navbarme">
+                   <div class="batstr" id="batterybar"></div>
+                    <ul id="linksup">
+                        <li title="home" class="homebtn">
+                            <i class="fa fa-home"></i>
+                        </li>
+                        <li title="charge info" class="chargebtn">
+                            <i class="fa fa-battery"></i>
+                        </li>
+                        <li title="games section" class="gamesbtn">
+                            <i class="fa fa-gamepad"></i>
+                        </li>
+                    </ul>
+               </div>
+        </div>
+       
+    </div>
+    </div>
+
+    <style>
+      .nav-link{
+        color:#ffffff !important;
+      }
+      table{
+
+    width: 95%;
+    margin: 10px;
+
+      }
+      thead{
+
+    border-bottom: 1px solid #fff;
+
+      }
+      thead td{
+        padding: 5px;
+      }
+      tbody td{
+        padding: 3px;
+    border-bottom: 1px solid #fff;
+
+      }
+      #durtn{
+        width: 95% !important;
+        height: auto !important;
+      }
+    .info span{
+        font-size:10px !important;
+        display:inline-block;
+    }
+    input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 5.35px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 13.3px;
+  cursor: pointer;
+  box-shadow: 1.4px 1.4px 1.7px #563d7c, 0px 0px 1.4px #563d7c;
+  background: #fff;
+  border-radius: 25px;
+  border: 2.3px solid #dbd58f;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 4.1px 4.1px 7.2px #563d7c, 0px 0px 4.1px #62458d;
+  border: 5px solid #ffffff;
+  height: 24px;
+  width: 22px;
+  border-radius: 12px;
+  background: #556633;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7.65px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ffbae6;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 13.3px;
+  cursor: pointer;
+  box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+  background: #ff91d8;
+  border-radius: 25px;
+  border: 2.3px solid #dbd58f;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 4.1px 4.1px 7.2px #563d7c, 0px 0px 4.1px #62458d;
+  border: 5px solid #ffffff;
+  height: 24px;
+  width: 22px;
+  border-radius: 12px;
+  background: #556633;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 13.3px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #ff68ca;
+  border: 2.3px solid #dbd58f;
+  border-radius: 50px;
+  box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+}
+input[type=range]::-ms-fill-upper {
+  background: #ff91d8;
+  border: 2.3px solid #dbd58f;
+  border-radius: 50px;
+  box-shadow: 1.4px 1.4px 1.7px #ffb2df, 0px 0px 1.4px #ffccea;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 4.1px 4.1px 7.2px #563d7c, 0px 0px 4.1px #62458d;
+  border: 5px solid #ffffff;
+  height: 24px;
+  width: 22px;
+  border-radius: 12px;
+  background: #556633;
+  cursor: pointer;
+  height: 13.3px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #ff91d8;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ffbae6;
+}
+
+    @media(min-width:450px){
+        .widgets{
+            display:flex;
+            align-items:center;
+            padding-left:8%;
+            padding-top:30px;
+        }
+         .widgets .widget{
+            margin-left:30px;
+            font-size:16px;
+            width:200px;
+            box-shadow:2px 3px 2px 3px #563d7c;
+            height:180px;
+        }
+        .widget span{
+                font-size:13px;
+            }
+    }
+    @media(max-width:450px){
+        .home {
+            padding-bottom:30px;
+            overflow:scroll;
+        }
+        .widgets{
+            display:inline-block;
+        }
+        .widgets .widget{
+            margin:20px;
+            width:300px;
+            font-size:15px;
+            box-shadow:1px 1px 1px 1px #563d7c;
+            height:150px;
+        }
+
+        .widget span{
+            font-size:13px;
+        }
+    }
+    .widgets {
+        
+       /* float:right;*/
+       /*overflow:scroll;*/
+       margin-top:50px;
+       align-items:center;
+        
+    }
+    .widget:hover{
+        color:#563d7c;
+        background:#fff;
+        box-shadow:2px 3px 2px 3px #fff;
+        border:1px solid #fff;
+
+    }
+    .widget hr{
+        color:#563daa;
+        background:#fff;
+    }
+    .widgets .widget{
+        color:#fff;
+        transition:0.7s;
+        background:#563d7c;
+        
+        border-radius:10px;
+        padding:20px;
+        
+
+            }
+            
+        .header{
+            background:#fff;
+            color:#563d7c;
+            border-bottom:1px solid #563d7c;
+            /*width:200px;
+            height:70px; */       
+            padding:20px;
+            overflow:hidden;
+            position:absolute;
+            top:0;
+            height:30px;
+            left:0;
+            right:0;
+            text-align:center;
+            height:50px;
+
+            box-shadow:3px 3px 3px 3px #563d7c;
+            /*border-radius:20px;*/
+         }
+        #linksup{
+            /* position:absolute;
+            top:auto; */
+        }
+        .batstr{
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            position: absolute;
+            top: 0;
+            height: 30%;
+            WIDTH:0;
+            background: #563d7c;
+            text-align: center;
+            color:#ffffff;
+            transition:2s;
+        }
+        .batterybaro{
+            animation-name: anim;
+            animation-iteration-count: infinite;
+            animation-duration: .5s;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            position: absolute;
+            top: 0;
+            height: 30%;
+            WIDTH:0;
+            background: #563d7c;
+            text-align: center;
+            color:#ffffff;
+            transition:1s;
+        }
+        @keyframes anim{
+            0%{
+                background: #563d7c;   
+            }
+            50%{
+                background: #563d5d;
+            }
+            100%{
+                background: #563dad;
+            }
+        }
+        .batterybtn{
+            position:fixed;
+            bottom:20%;
+            right:10%;
+            z-index: 200;
+
+            background: #ffffff;
+            border-radius:50%;
+            height: 50px;
+            width: 50px;
+            font-size: 10px;
+            overflow: hidden;
+            color:#563d7c;
+            padding: 5px;
+            /* box-shadow: 2px 2px 2px #563d7c; */
+            border:2px solid #563d7c;
+            transition: 1s;
+        }
+        .batterybtn:hover{
+            color:#ffffff !important;
+            background: #563d7c;
+        }
+        .fade {
+            animation-name: anim;
+            animation-duration: 1s;
+            
+        }
+        .home {
+
+            background: #fff;
+            position: absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right:0;
+            color:#563d7c;
+            
+        }
+        .navbar{
+        position: fixed;
+        bottom: 0;
+        left:0;
+        z-index:100;
+        padding:0;
+        right:0;
+        background: #ffffff;
+        color:#563d7c;
+        height: 70px;
+        /* border-top:1px dotted #563d7c; */
+        box-shadow: 10px 10px 10px 10px #563d7c;
+    }
+    .navbar ul{
+        display:flex;
+        padding-top:10px;
+        text-align: center;
+        float:center;
+        align-items: center;
+        align-content: center;
+    }
+    .navbar ul li{
+        cursor:pointer;
+       
+
+    }
+    @media(min-width:450px){
+        .navbar ul li{
+            font-size:30px;
+            margin-left: 250px;
+        }
+    }
+    @media(max-width:450px){
+        .navbar ul li{
+            font-size:22px;
+            margin-left: 50px;
+        }
+    }
+    </style>
+<aside id="demo-mode" style="display:none;">
+      
+    <div class="testimonial_area ">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="testmonial_active owl-carousel">
+                        <div class="single_carousel">
+                                <div class="single_testmonial text-center">
+                                        <div class="quote">
+                                            <img src="img/testmonial/quote.svg" alt="">
+                                        </div>
+                                        <p>
+                                           Battery Statistics at a glance <br>
+                                               Have you been curious about your battery life?</p>
+                                        <div class="testmonial_author">
+                                            <div class="thumb">
+                                                    <img src="img/testmonial/thumb.png" alt="">
+                                            </div>
+                                            <h3><i class="fa fa-smile-beam"></i></h3>
+                                            <span>
+                                                BatteryLife helps monitor and keep records of charging time,charging duration,percentage charged,duration taken for each percentage to charge and discharge in comprehensive details and many other functions.
+
+                                            </span>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div class="single_carousel">
+                                <div class="single_testmonial text-center">
+                                        <div class="quote">
+                                            <img src="img/testmonial/quote.svg" alt="">
+                                        </div>
+                                        <p>BatteryLife <br> 
+                                               
+                                        </p>
+                                        <div class="testmonial_author">
+                                            <div class="thumb">
+                                                    <img src="img/testmonial/thumb.png" alt="">
+                                            </div>
+                                            <h3><i class="fa fa-battery"></i></h3>
+                                            <span>  BatteryLife helps you analyze and predict your charging and duration accurately.</span>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div class="single_carousel">
+                                <div class="single_testmonial text-center">
+                                        <div class="quote">
+                                            <img src="img/testmonial/quote.svg" alt="">
+                                        </div>
+                                        <p>are you busy or sleeping but you want to know how your battery charged or discharged? <br> 
+                                                </p>
+                                        <div class="testmonial_author">
+                                            <div class="thumb">
+                                                    <img src="img/testmonial/thumb.png" alt="">
+                                            </div>
+                                            
+                                            <span>Once your phone is connected or charging,BatteryLife can make an alarm sound to notify,BatteryLife gives you a clear report of how your battery charges and discharges.
+                                            </span>
+                                        </div>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- about_me  -->
+     <div class="about_me">
+        <div class="about_large_title d-none d-lg-block">
+                BatteryLife
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6 col-md-6">
+                    <div class="about_e_details">
+                        <h3>BatteryLife</h3>
+                        <p>
+                           No more assumption when it comes to your BatteryLife,<br>
+                           No more disappointment when it comes to charging duration prediction.<br>
+                          <I>  And here's the <b><u>GOODNEWS</u></b> <i class="fa fa-smile-wink"></i><br> 
+                            BatteryLife is </I><b>FREE!</b> <i class="fa fa-smile-beam"></i>
+                        </p>
+                        <div class="download_cv">
+                            <a class="mybtn getstarted">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-md-6">
+                    <div class="about_img">
+                        <div class="color_pattern d-none d-lg-block">
+                            <img src="img/about/color_grid.png" alt="">
+                        </div>
+                        <div class="my_Pic">
+                                <img src="img/logo.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/ about_me  -->
+    <div class="discuss_projects">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="project_text text-center">
+                        <h3>Less Talk,Let's get to work</h3>
+                        <p>Get started and then make sure you click the add to home screen for offline avaiability</p>
+                        <a class="boxed-btn3 getstarted">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer start -->
+    <footer class="footer">
+        <div class="footer_top">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-xl-6 col-md-6">
+                        <div class="menu_links">
+                            <ul>
+                                <li><a class="active" href="index.html">home</a></li>
+                                <li><a href="">How It works</a></li>
+                                <li><a href="">Pricing</a></li>
+                                <li>                                          
+                                      <a class="getstarted">Get Started</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                        <div class="socail_links">
+                            <ul>
+                               
+                                <li><a href="https://twitter.com/BatteryLife_App"> <i class="fa fa-twitter"></i> </a></li>
+                                <li><a href="mailto:batterylaif@gmail.com"> <i class="fa fa-envelope"></i> </a></li>
+                              
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right_text">
+            <div class="container">
+                <div class="footer_border"></div>
+                <div class="row">
+                    <div class="col-xl-12">
+                        <p class="copy_right text-center">
+                           
+ &copy;<script>document.write(new Date().getFullYear());</script>  Swipe Inc
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--/ footer end  -->
+
+     </aside>
+     
+    <!-- JS here -->
+    <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/ajax-form.js"></script>
+    <script src="js/waypoints.min.js"></script>
+    <script src="js/jquery.counterup.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/scrollIt.js"></script>
+    <script src="js/jquery.scrollUp.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/nice-select.min.js"></script>
+    <script src="js/jquery.slicknav.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/gijgo.min.js"></script>
+    <script src="js/sw2.js"></script>
+
+    <script src="js/index.js"></script>
+    <!--contact js-->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
