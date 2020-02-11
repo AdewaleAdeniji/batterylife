@@ -12,7 +12,7 @@ if(demo){
    show("opened");
    hide('chargeinfo');
    //$('#gamesection').hide();
-   hide('home');
+   show('home');
 swal.fire({
 text:'Loading',
 footer:'<i class="fa fa-spinner fa-spin"></i>',
@@ -39,18 +39,18 @@ else {
     $('.homebtn').click(()=>{
         show('home');
         hide('chargeinfo');
-        hide('gamesection');
+       // hide('gamesection');
     })
     $('.chargebtn').click(()=>{
         hide('home');
         show('chargeinfo');
-        hide('gamesection');
+        //hide('gamesection');
     })
-    $(".gamesbtn").click(function(){
-        hide('home');
-        hide('chargeinfo');
-        show('gamesection');
-    });
+    // $(".gamesbtn").click(function(){
+    //     hide('home');
+    //     hide('chargeinfo');
+    //     show('gamesection');
+    // });
     $('.getstarted').click(()=>{
         var os = ['windows','linux','ubuntu','mac','iphone','ipad','android'];
         var user = ((navigator.userAgent).toLowerCase()).toString();
@@ -523,17 +523,23 @@ pause("percent");
 
 // get('batterybtn').click();
 function play(e){
-   
+    var soun = getitem('sounds');
+    if(soun=="true"||soun==''){
     get(e).play();
+    }
     
 }
 function say(e){
+   
+    
+       
     var a = new SpeechSynthesisUtterance(e);
     var s = window.speechSynthesis;
-    var voices = s.getVoices();
+   // var voices = s.getVoices();
     //console.log(a.voice);
-    a.voice = voices[1];
+   // a.voice = voices[1];
     s.speak(a);
+    
 }
 function pause(e){
     get(e).pause();
@@ -598,6 +604,7 @@ function startup(){
     progres('cdur');
      progres('ppluged');
      progres('unplug');
+     progres('sounds');
     // progres('stats');
      var e = getitem("percents");
     if(e==null||e==undefined||e==''){ 
@@ -673,7 +680,7 @@ function monitor(level){
    // console.log(minus);
     if(minus===-1){
        f[0] = timet;
-       f[1] = dec;
+       f[1] = '';
        let narr = f.join(":");
       // console.log(narr);
         stats[level] = narr;
@@ -684,7 +691,7 @@ function monitor(level){
     }
     else {
         f[1] = timet;
-       f[0] = inc;
+       f[0] = '';
        let narr = f.join(":");
      //  console.log(narr);
         stats[level] = narr;
@@ -755,3 +762,92 @@ function loadstats(){
             }
     })
 }
+    
+$(".settingsbtn").click(function(){
+    var sounds = getitem('sounds');
+    if(sounds=="true"){
+        swal.fire({
+            icon:'question',
+            text:'Do you want to deactivate sounds ?',
+            confirmButtonText:'Yes',
+            showCancelButton:true,
+            cancelButtonText:'No',
+            confirmButtonColor:'#563d7c',
+            allowOutsideClick:false,
+            allowEscapeKey:false,
+            showCloseButton:false,
+            backdrop:'#563d7c',
+        })
+        .then((res)=>{
+            if(res.value){
+                //console.log("deactivate");
+                setitem('sounds',false);
+
+            }
+            else {
+                
+               // console.log("canceled");
+            }
+            moveon();
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    }
+    else{
+        swal.fire({
+            icon:'question',
+            text:'Do you want to Activate sounds ?',
+            confirmButtonText:'Yes',
+            showCancelButton:true,
+            cancelButtonText:'No',
+            confirmButtonColor:'#563d7c',
+            allowOutsideClick:false,
+            allowEscapeKey:false,
+            showCloseButton:false,
+            backdrop:'#563d7c',
+        })
+        .then((res)=>{
+            if(res.value){
+                setitem('sounds',true);
+              //  console.log("activate");
+            }
+            else {
+               // console.log("canceled");
+            }
+            moveon();
+        })
+        .catch((err)=>{
+            console.log(err);
+        });
+    }   
+});
+const moveon = (()=>{
+    swal.fire({
+        icon:'success',
+        text:'Clear all logs',
+        confirmButtonText:'Clear <i class="fa fa-trash"></i>',
+        confirmButtonColor:'#563d7c',
+        backdrop:'#563d7c',
+        cancelButtonText:'No',
+        allowOutsideClick:false,
+            allowEscapeKey:false,
+            showCloseButton:false,
+    })
+    .then((result)=>{
+        if(result.value){
+            setitem('stats','');
+            setitem('dstats','');
+            setItem('percents','');
+        }
+
+
+    swal.fire({
+            icon:'success',
+            html:'This Web App was developed by <a href="https://bit.ly/feranmidev" target="_blank">DevFeranmi (Twitter: <a href="https://twitter.com/devferanmi" target="_blank">@DevFeranmi</a> </i>',
+            showConfirmButton:false,
+            timer:10000,
+
+    })
+    })
+});
